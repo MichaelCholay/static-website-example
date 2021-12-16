@@ -35,16 +35,16 @@ pipeline {
            }
        }
 
-       stage ('Test container') {
-           agent any
-           steps {
-               script{
-                   sh '''
-                       curl http://localhost:5000 | grep -iq "Dimension"
-                   '''
-               }
-           }
-       }
+    //    stage ('Test container') {
+    //        agent any
+    //        steps {
+    //            script{
+    //                sh '''
+    //                    curl http://localhost:5000 | grep -iq "Dimension"
+    //                '''
+    //            }
+    //        }
+    //    }
 
        stage ('clean env and save artifact') {
            agent any
