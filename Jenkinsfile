@@ -4,8 +4,8 @@ pipeline {
         IMAGE_NAME = "static_site"
         USERNAME = "drmcy"
         CONTAINER_NAME = "static_site"
-        EC2_STAGING_HOST = "3.95.171.239"
-        EC2_PRODUCTION_HOST = "54.144.144.1"
+        EC2_STAGING_HOST = "3.88.191.45"
+        EC2_PRODUCTION_HOST = "52.204.0.89"
     }
 
     agent none
@@ -35,16 +35,16 @@ pipeline {
            }
        }
 
-    //    stage ('Test container') {
-    //        agent any
-    //        steps {
-    //            script{
-    //                sh '''
-    //                    curl http://localhost:5000 | grep -iq "Dimension"
-    //                '''
-    //            }
-    //        }
-    //    }
+       stage ('Test container') {
+           agent any
+           steps {
+               script{
+                   sh '''
+                       curl http://localhost:5000 | grep -iq "Dimension"
+                   '''
+               }
+           }
+       }
 
        stage ('clean env and save artifact') {
            agent any
@@ -70,7 +70,7 @@ pipeline {
             expression{ GIT_BRANCH == 'origin/master'}
         }
         steps{
-            withCredentials([sshUserPrivateKey(credentialsId: "ec2_lab9_pk", keyFileVariable: 'keyfile', usernameVariable: 'NUSER')]) {
+            withCredentials([sshUserPrivateKey(credentialsId: "ec2_prod_private_key", keyFileVariable: 'keyfile', usernameVariable: 'NUSER')]) {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script{
                         sh'''
@@ -90,7 +90,7 @@ pipeline {
             expression{ GIT_BRANCH == 'origin/master'}
         }
         steps{
-            withCredentials([sshUserPrivateKey(credentialsId: "ec2_lab9_pk", keyFileVariable: 'keyfile', usernameVariable: 'NUSER')]) {
+            withCredentials([sshUserPrivateKey(credentialsId: "ec2_prod_private_key", keyFileVariable: 'keyfile', usernameVariable: 'NUSER')]) {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     script{ 
                         timeout(time: 15, unit: "MINUTES") {

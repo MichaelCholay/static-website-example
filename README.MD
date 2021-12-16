@@ -1,6 +1,8 @@
 Static Website Example
 ----------------------
 
+[![Build Status](http://18.233.64.178:8080/buildStatus/icon?job=Lab)](http://18.233.64.178:8080/job/Lab/)
+
 To be used with Cloud Academy labs.
 
 
