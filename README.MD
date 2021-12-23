@@ -1,7 +1,7 @@
 Static Website Example
 ----------------------
 
-[![Build Status](http://18.233.64.178:8080/buildStatus/icon?job=Lab)](http://18.233.64.178:8080/job/Lab/)
+[![Build Status](http://54.82.43.89:8080/buildStatus/icon?job=Ec2-cloud)](http://54.82.43.89:8080/job/Ec2-cloud/)
 
 To be used with Cloud Academy labs.
 
