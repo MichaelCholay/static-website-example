@@ -1,4 +1,4 @@
-Static Website Example
+Static Website Example for mini-project
 ----------------------
 
 [![Build Status](http://54.82.43.89:8080/buildStatus/icon?job=Ec2-cloud)](http://54.82.43.89:8080/job/Ec2-cloud/)
